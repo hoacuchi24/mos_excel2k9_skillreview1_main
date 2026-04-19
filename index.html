@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz MOS Excel 2019 — Skill Review 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Be Vietnam Pro',sans-serif;background:#f0f2f5;color:#1e293b;line-height:1.6}
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 40%,#0e7c46 100%);color:#fff;padding:32px 20px 28px;text-align:center;position:sticky;top:0;z-index:100;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.hero h1{font-size:21px;font-weight:800;letter-spacing:1px}
+.hero p{font-size:13px;opacity:.8;margin-top:4px}
+.scoreboard{display:flex;justify-content:center;gap:16px;margin-top:14px;font-size:13px;font-weight:600;flex-wrap:wrap}
+.scoreboard span{background:rgba(255,255,255,.15);padding:4px 14px;border-radius:18px}
+#sc-ok{color:#4ade80}#sc-no{color:#f87171}#sc-re{color:#fbbf24}
+.container{max-width:840px;margin:0 auto;padding:20px 16px 60px}
+.topic-hdr{padding:12px 20px;border-radius:12px;margin:28px 0 14px;color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.topic-hdr .badge{background:rgba(255,255,255,.2);padding:3px 12px;border-radius:12px;font-size:12px;font-weight:500}
+.qc{background:#fff;border-radius:14px;margin-bottom:16px;box-shadow:0 1px 6px rgba(0,0,0,.06);border:1.5px solid #e2e8f0;overflow:hidden;transition:border-color .3s}
+.qc.ok{border-color:#22c55e}.qc.ng{border-color:#ef4444}
+.qh{padding:14px 18px 10px;display:flex;gap:10px;align-items:flex-start}
+.qn{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff;flex-shrink:0;margin-top:2px}
+.qt{font-size:13.5px;font-weight:500;flex:1}
+.opts{padding:0 18px 14px}
+.op{display:flex;align-items:flex-start;gap:9px;padding:9px 12px;margin-bottom:5px;border-radius:9px;border:1.5px solid #e2e8f0;cursor:pointer;transition:all .2s;font-size:12.5px}
+.op:hover:not(.dis){background:#f8fafc;border-color:#94a3b8}
+.op .le{width:24px;height:24px;border-radius:7px;background:#f1f5f9;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;color:#64748b;flex-shrink:0;transition:all .2s}
+.op .tx{flex:1;padding-top:2px}
+.op.co{background:#dcfce7!important;border-color:#22c55e!important}.op.co .le{background:#22c55e;color:#fff}
+.op.wr{background:#fee2e2!important;border-color:#ef4444!important}.op.wr .le{background:#ef4444;color:#fff}
+.op.dis{cursor:default;opacity:.7}.op.co.dis{opacity:1}
+.ea{padding:0 18px 14px;display:none}
+.eb{background:none;border:1.5px dashed #94a3b8;color:#64748b;padding:6px 14px;border-radius:7px;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
+.eb:hover{border-color:#3b82f6;color:#3b82f6}
+.ec{margin-top:8px;padding:10px 14px;background:#f0f9ff;border-radius:9px;border-left:4px solid #3b82f6;font-size:12px;color:#1e40af;line-height:1.7;display:none}
+.ec b{color:#1e3a5f}
+.footer{text-align:center;padding:30px;font-size:11px;color:#94a3b8}
+@media(max-width:600px){.hero h1{font-size:16px}.qh{padding:10px 12px 8px}.opts{padding:0 12px 10px}.op{padding:7px 9px;font-size:11.5px}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>QUIZ MOS EXCEL 2019 — SKILL REVIEW 1</h1>
+<p>Ôn tập tổng hợp · 40 câu hỏi thao tác đa dạng</p>
+<div class="scoreboard"><span id="sc-ok">✅ 0</span><span id="sc-no">❌ 0</span><span id="sc-re">📝 40</span></div>
+</div>
+<div class="container" id="qz"></div>
+<div class="footer">MOS Excel 2019 (MO-200) — Skill Review 1 — 40 câu</div>
+<script>
+const Q=[
+// ═══ PHẦN A: Formulas & Functions (10 câu) ═══
+{p:'A',n:1,q:'Trên trang tính "Annual Sales", để tính tổng SUM cho các ô B16:F16 trong hàng Total bằng cách nhanh nhất, bạn dùng gì?',
+o:['Gõ =SUM(B5:B15) rồi kéo sang F16','Chọn B16:F16 → nhấn nút AutoSum (Σ)','Chọn B16:F16 → Data → Subtotals','Chọn B16:F16 → Insert → Function → SUM'],
+a:1,e:'Chọn dãy B16:F16 → nhấn <b>AutoSum (Σ)</b> trên tab Home hoặc Formulas. Excel tự điền =SUM() cho <b>tất cả các ô được chọn</b> cùng lúc — nhanh hơn gõ từng ô.'},
+
+{p:'A',n:2,q:'Trên trang tính "Review", để hiển thị nội dung B4 + khoảng trắng + A4 trong ô J4, công thức đúng là gì?',
+o:['=A4&" "&B4','=CONCATENATE(B4," ",A4)','=TEXTJOIN(" ",TRUE,B4,A4)','Cả B và C đều đúng'],
+a:3,e:'Đề yêu cầu B4 trước, A4 sau. Cả <b>CONCATENATE(B4," ",A4)</b> và <b>TEXTJOIN(" ",TRUE,B4,A4)</b> đều cho kết quả giống nhau. Đáp án A bị ngược thứ tự (A4 trước B4).'},
+
+{p:'A',n:3,q:'Trên "Review", tại H4 cần tính SUM(E4:G4) chia cho 3, KHÔNG dùng hàm AVERAGE. Công thức đúng là gì?',
+o:['=AVERAGE(E4:G4)','=SUM(E4:G4)/3','=(E4+F4+G4)*3','=SUM(E4:G4)*1/3'],
+a:1,e:'<b>=SUM(E4:G4)/3</b>. Đề yêu cầu không dùng AVERAGE nên phải tính thủ công: tổng chia 3. Đáp án D cũng cho kết quả đúng nhưng cách B rõ ràng hơn.'},
+
+{p:'A',n:4,q:'Trên "June", tại E4 cần hiển thị 1 nếu D4 > 2500, hiển thị 0 nếu ≤ 2500. Công thức đúng là gì?',
+o:['=IF(D4>2500,0,1)','=IF(D4>2500,1,0)','=IF(D4<2500,1,0)','=IF(D4>=2500,1,0)'],
+a:1,e:'<b>=IF(D4>2500,1,0)</b>. Điều kiện: D4 > 2500 → hiển thị 1. Ngược lại (≤ 2500) → hiển thị 0. Sau đó copy công thức xuống E33.'},
+
+{p:'A',n:5,q:'Trên "Annual Sales", tại B17, dùng COUNTIF đếm số lần giá trị B6:B15 vượt quá 5000. Công thức đúng là gì?',
+o:['=COUNTIF(B6:B15,">5000")','=COUNTIF(B6:B15,5000)','=COUNTIFS(B6:B15,">5000",B6:B15,"<10000")','=COUNT(B6:B15,">5000")'],
+a:0,e:'<b>=COUNTIF(B6:B15,">5000")</b>. Criteria phải đặt trong ngoặc kép: <b>">5000"</b>. COUNT chỉ đếm ô chứa số (không có criteria). COUNTIFS dùng cho nhiều điều kiện.'},
+
+{p:'A',n:6,q:'Trên "June", tại B34 cần tính SUM(B4:B33) rồi copy sang C34 và D34. Bạn copy bằng cách nào?',
+o:['Gõ =SUM(B4:B33) → Enter → chọn B34 → kéo fill handle sang D34','Gõ =SUM(B4:B33) → Copy → chọn C34:D34 → Paste','Gõ =SUM($B$4:$B$33) → copy sang C34:D34','Cả A và B đều đúng'],
+a:3,e:'Cả 2 cách: (1) <b>kéo fill handle</b> sang phải, (2) <b>Copy + Paste</b>. Tham chiếu tương đối B4:B33 tự động đổi thành C4:C33 và D4:D33 khi copy sang. KHÔNG dùng $B$4 vì sẽ không đổi.'},
+
+{p:'A',n:7,q:'Trên "Annual Sales", tại B18 cần nhập tham chiếu ô tới ô A7. Bạn gõ gì?',
+o:['=A7','Gõ chữ "A7"','=REF(A7)','=INDIRECT("A7")'],
+a:0,e:'Gõ <b>=A7</b> tại ô B18. Đây là <b>tham chiếu ô</b> (cell reference) đơn giản nhất — B18 sẽ hiển thị nội dung của A7.'},
+
+{p:'A',n:8,q:'Trên "Totals", tại B2 cần hiển thị SUM của Named Range "Fiction12". Công thức đúng là gì?',
+o:['=SUM(B4:B33)','=SUM(Fiction12)','=SUM("Fiction12")','=FICTION12'],
+a:1,e:'<b>=SUM(Fiction12)</b>. Dùng tên vùng trực tiếp trong hàm, <b>KHÔNG đặt trong ngoặc kép</b> (đó là chuỗi text). Tên vùng Fiction12 đã được định nghĩa cho B4:B33.'},
+
+{p:'A',n:9,q:'Trên "June", tại E34 cần tính AVERAGE của B4:D33. Công thức đúng là gì?',
+o:['=AVG(B4:D33)','=AVERAGE(B4:D33)','=SUM(B4:D33)/COUNT(B4:D33)','Cả B và C đều đúng'],
+a:1,e:'<b>=AVERAGE(B4:D33)</b>. Excel không có hàm AVG. Đáp án C cũng cho kết quả tương tự nhưng AVERAGE đơn giản và chính xác hơn (AVERAGE bỏ qua ô trống, COUNT chỉ đếm số).'},
+
+{p:'A',n:10,q:'Trên "Quarterly Sales", tại B9 cần công thức: Annual Sales!F16 * (1 + B3). Cách nhập đúng là gì?',
+o:['Gõ = → click sang sheet Annual Sales → click ô F16 → gõ *(1+ → click lại sheet Quarterly Sales → click B3 → gõ ) → Enter','Gõ =F16*(1+B3) trực tiếp','Gõ =Annual Sales.F16*(1+B3)','Gõ =INDIRECT("Annual Sales!F16")*(1+B3)'],
+a:0,e:'Gõ <b>=</b> → click sang tab <b>Annual Sales</b> → click <b>F16</b> → gõ <b>*(1+</b> → click lại tab <b>Quarterly Sales</b> → click <b>B3</b> → gõ <b>)</b> → Enter. Excel tự tạo tham chiếu liên sheet: <b>=\'Annual Sales\'!F16*(1+B3)</b>.'},
+
+// ═══ PHẦN B: Formatting & Styles (10 câu) ═══
+{p:'B',n:1,q:'Trên "Annual Sales", để tìm ô chứa Conditional Formatting rồi áp dụng Thick Outside Border, bạn làm gì?',
+o:['Ctrl+F → gõ "Conditional Formatting" → Find','Home → Find & Select → nhấn mũi tên → chọn Conditional Formatting → ô được chọn → Home → Borders → Thick Outside Border','Home → Conditional Formatting → Manage Rules → Add Border','View → Find → Formatting → Border'],
+a:1,e:'<b>Home → Find & Select → mũi tên xổ → Conditional Formatting</b>. Excel tự chọn ô có CF. Sau đó <b>Home → Borders → Thick Outside Border</b>. Find & Select có thể tìm theo nhiều tiêu chí: CF, Data Validation, Constants...'},
+
+{p:'B',n:2,q:'Để định dạng ô B16:F16 với Number Format = Currency, Font = Courier New, Fill = Yellow, cách nhanh nhất là gì?',
+o:['Tạo New Cell Style với 3 thuộc tính → áp dụng','Chọn B16:F16 → Home → lần lượt đặt Number Format, Font, Fill Color trên ribbon','Chọn B16:F16 → chuột phải → Format Cells → đặt cả 3 trong 1 dialog','Cả B và C đều được'],
+a:3,e:'Cả 2 cách: (1) Dùng <b>ribbon</b> trên tab Home đặt từng thuộc tính. (2) <b>Format Cells (Ctrl+1)</b> → tab Number chọn Currency → tab Font chọn Courier New → tab Fill chọn Yellow → OK. Cách 2 gọn hơn.'},
+
+{p:'B',n:3,q:'Trên "Product", để thay đổi format số trong B8:E33 không hiện decimal, bạn dùng cách nào?',
+o:['Chọn B8:E33 → Home → nhấn nút Decrease Decimal cho đến khi hết số thập phân','Chọn B8:E33 → Format Cells → Number → Decimal places: 0','Cả A và B đều đúng','Chọn B8:E33 → Home → Number Format → General'],
+a:2,e:'Cả 2 cách: (1) Nhấn nút <b>Decrease Decimal</b> nhiều lần. (2) <b>Format Cells → Number → Decimal places: 0</b>. Cách 2 chính xác hơn vì đặt trực tiếp = 0.'},
+
+{p:'B',n:4,q:'Trên "Annual Sales", để áp dụng Cell Style "Title" cho ô chứa FusionTomo Inc., bạn vào đâu?',
+o:['Home → Font → chọn font Title','Chọn ô → Home → Cell Styles → chọn Title','Insert → Text Box → gõ Title','Page Layout → Themes → Title Style'],
+a:1,e:'Chọn ô chứa tên công ty → <b>Home → Cell Styles → Title</b>. Cell Styles là bộ định dạng có sẵn (Heading 1-4, Title, Explanatory...) trong nhóm <b>Styles</b> trên tab Home.'},
+
+{p:'B',n:5,q:'Trên "June", để Merge & Align Right ô A2:D2, bạn thực hiện mấy bước?',
+o:['Home → Merge & Center → xong (tự động Align Right)','Home → Merge & Center → rồi nhấn nút Align Right','Home → Merge Across → rồi Align Right','Home → Merge Cells → rồi Format Cells → Right'],
+a:1,e:'<b>2 bước</b>: (1) Home → <b>Merge & Center</b> (gộp ô). (2) Nhấn nút <b>Align Right</b> để đổi căn chỉnh từ Center sang Right. Merge & Center mặc định căn giữa, cần đổi lại.'},
+
+{p:'B',n:6,q:'Trên "June", để áp dụng Heading 3 cho tiêu đề "Blackbread Books", bạn dùng lệnh nào?',
+o:['Home → Font Size → chọn Heading 3','Chọn ô tiêu đề → Home → Cell Styles → Heading 3','Insert → Header → Heading 3','Format → Text → Heading 3'],
+a:1,e:'Chọn ô chứa tiêu đề → <b>Home → Cell Styles → Heading 3</b>. Heading 1-4 là các Cell Styles có sẵn, đặt font size và màu khác nhau cho mỗi cấp.'},
+
+{p:'B',n:7,q:'Trên "Review", để áp dụng CF Gradient Fill - Green Data Bar cho cột E, bạn làm gì?',
+o:['Chọn cột E → Home → Conditional Formatting → Data Bars → Gradient Fill → Green','Chọn cột E → Home → Conditional Formatting → Color Scales → Green','Chọn cột E → Home → Conditional Formatting → Icon Sets → Green Bars','Insert → Charts → Bar → Green'],
+a:0,e:'Chọn dữ liệu cột E → <b>Conditional Formatting → Data Bars → Gradient Fill → Green</b>. Data Bars vẽ thanh màu trong ô tỷ lệ với giá trị. Gradient Fill = chuyển màu, Solid Fill = đặc.'},
+
+{p:'B',n:8,q:'Trên "Review", để áp dụng CF tô vàng (Yellow Fill) cho ô có giá trị bằng 5 trong cột E, F, G, bạn làm gì?',
+o:['CF → Highlight Cells Rules → Equal To → gõ 5 → Custom Format → Fill: Yellow → OK','CF → Top/Bottom Rules → Equal To 5 → Yellow','CF → Data Bars → Yellow','CF → Color Scales → Yellow-Green'],
+a:0,e:'Chọn E:G → <b>CF → Highlight Cells Rules → Equal To</b> → gõ <b>5</b> → chọn <b>Custom Format</b> → tab <b>Fill</b> → chọn <b>Yellow</b> → OK. "Equal To" là rule tô sáng ô có giá trị bằng đúng một giá trị.'},
+
+{p:'B',n:9,q:'Trên "Time Card", để hiện Gridlines trên trang tính, bạn vào đâu?',
+o:['Home → Borders → All Borders','View → tick Gridlines','Page Layout → Sheet Options → Gridlines → View','Cả B và C đều đúng'],
+a:3,e:'Cả 2 cách: (1) <b>View → tick Gridlines</b>. (2) <b>Page Layout → Sheet Options → Gridlines → tick View</b>. Gridlines là đường kẻ mờ giữa các ô, khác với Borders (đường viền in được).'},
+
+{p:'B',n:10,q:'Trên "Time Card", để thêm đường viền Dark Blue cho hình ảnh, bạn vào đâu?',
+o:['Home → Borders → Dark Blue','Chọn ảnh → Picture Format → Picture Border → Dark Blue','Chọn ảnh → Format → Shape Outline → Dark Blue','Cả B và C đều thực hiện được'],
+a:1,e:'Chọn hình ảnh → tab <b>Picture Format</b> xuất hiện → <b>Picture Border</b> → chọn màu <b>Dark Blue</b>. Tab Picture Format chỉ hiện khi chọn hình ảnh (không phải Shape).'},
+
+// ═══ PHẦN C: Tables, Sort, Filter (10 câu) ═══
+{p:'C',n:1,q:'Trên "June", để áp dụng Table Style Light 4 cho ô A3:D34, bạn làm gì?',
+o:['Chọn A3:D34 → Home → Format as Table → chọn Table Style Light 4','Chọn A3:D34 → Insert → Table → rồi Table Design → chọn Style Light 4','Chọn A3:D34 → Page Layout → Table Styles → Light 4','Cả A và B đều được'],
+a:3,e:'Cả 2 cách: (1) <b>Home → Format as Table</b> → chọn style (vừa tạo bảng vừa chọn style). (2) <b>Insert → Table</b> rồi đổi style trong Table Design. Cách 1 nhanh hơn.'},
+
+{p:'C',n:2,q:'Trên "Review", để định dạng A3:G33 thành bảng với Table Style Light 2, bạn làm gì?',
+o:['Chọn A3:G33 → Home → Format as Table → Table Style Light 2 → tick My table has headers → OK','Chọn A3:G33 → Insert → Table → OK → Table Design → Style Light 2','Data → Convert to Table → Light 2','Cả A và B đều đúng'],
+a:3,e:'Cả 2 cách đều tạo bảng + áp dụng style. Nhớ tick <b>My table has headers</b> nếu dòng đầu là tiêu đề cột.'},
+
+{p:'C',n:3,q:'Trên "Annual Sales", để sort dữ liệu A5:F15 theo cột Total từ lớn nhất đến nhỏ nhất, bạn làm gì?',
+o:['Nhấn mũi tên cột Total → Sort Largest to Smallest','Chọn vùng A5:F15 → Data → Sort → Sort by: Total → Largest to Smallest → OK','Home → Sort & Filter → Sort by Total','Chọn cột Total → chuột phải → Sort Descending'],
+a:1,e:'Chọn vùng A5:F15 → <b>Data → Sort → Sort by: Total → Order: Largest to Smallest</b> → OK. Chọn vùng trước giúp Excel biết chính xác dãy dữ liệu cần sort.'},
+
+{p:'C',n:4,q:'Trên "Review", để lọc chỉ hiển thị người có vị trí "Developer", bạn làm gì?',
+o:['Data → Filter → nhấn mũi tên cột Position → bỏ Select All → chọn Developer → OK','Home → Find & Select → Developer','Data → Sort → Position → Developer Only','Data → Advanced Filter → Criteria: Developer'],
+a:0,e:'<b>Data → Filter</b> (bật AutoFilter nếu chưa bật) → nhấn mũi tên cột <b>Position</b> → bỏ tick <b>Select All</b> → tick <b>Developer</b> → OK. Các dòng khác bị ẩn.'},
+
+{p:'C',n:5,q:'Trên "June", để lọc cột Fiction chỉ hiển thị giá trị Above Average, bạn dùng filter nào?',
+o:['Mũi tên cột Fiction → Text Filters → Contains → "Average"','Mũi tên cột Fiction → Number Filters → Above Average','Home → Conditional Formatting → Top/Bottom → Above Average','Data → Advanced Filter → Criteria: >Average'],
+a:1,e:'Nhấn mũi tên cột Fiction → <b>Number Filters → Above Average</b>. Excel tự tính trung bình rồi chỉ hiển thị các dòng có giá trị lớn hơn trung bình đó.'},
+
+{p:'C',n:6,q:'Trên "Source Data", để sort theo CustomerID (A-Z) rồi Product (A-Z), bạn dùng lệnh nào?',
+o:['Data → Sort → Sort by: CustomerID (A to Z) → Add Level → Then by: Product (A to Z) → OK','Nhấn mũi tên cột CustomerID → Sort A-Z → rồi nhấn mũi tên Product → Sort A-Z','Home → Sort → CustomerID + Product','Data → Sort → Product → CustomerID'],
+a:0,e:'<b>Data → Sort → Sort by: CustomerID (A to Z) → Add Level → Then by: Product (A to Z)</b> → OK. Multi-level sort phải dùng hộp thoại Sort, không sort từng cột riêng.'},
+
+{p:'C',n:7,q:'Trên "Review", để Unmerge ô đã gộp ở dòng 2, bạn làm gì?',
+o:['Chọn dòng 2 → Home → Merge & Center (nhấn lại để bỏ gộp)','Chọn dòng 2 → Home → Merge & Center → Unmerge Cells','Chọn dòng 2 → chuột phải → Unmerge','Cả A và B đều đúng'],
+a:3,e:'Cả 2 cách: (1) Nhấn lại <b>Merge & Center</b> (toggle off). (2) Nhấn mũi tên dropdown → <b>Unmerge Cells</b>. Cả hai đều bỏ gộp ô. Chuột phải không có tùy chọn Unmerge trực tiếp.'},
+
+{p:'C',n:8,q:'Trên "June", để định nghĩa Named Range "Fiction12" cho B4:B33, bạn thao tác thế nào?',
+o:['Chọn B4:B33 → Formulas → Define Name → gõ Fiction12 → OK','Chọn B4:B33 → click Name Box → gõ Fiction12 → Enter','Cả A và B đều đúng','Data → Name Manager → New → Fiction12'],
+a:2,e:'Cả 2 cách tạo Named Range: (1) <b>Formulas → Define Name</b>. (2) Click <b>Name Box</b> → gõ tên → Enter. Name Box là ô hiển thị địa chỉ ô ở góc trái thanh công thức.'},
+
+{p:'C',n:9,q:'Trên "Source Data", để tìm ô chứa Data Validation rồi xóa validation, bạn làm gì?',
+o:['Home → Find & Select → Data Validation → ô được chọn → Data → Data Validation → Clear All → OK','Data → Data Validation → Find → Clear','Home → Clear → Clear Validation','Ctrl+F → gõ "Validation" → Delete'],
+a:0,e:'<b>Home → Find & Select → Data Validation</b> (Excel tự chọn ô có validation). Sau đó <b>Data → Data Validation → Clear All → OK</b>. Xóa validation nhưng giữ nguyên dữ liệu.'},
+
+{p:'C',n:10,q:'Trên "Source Data", để Unhide tất cả dòng ẩn, bạn làm gì?',
+o:['Ctrl+A (chọn tất cả) → Home → Format → Hide & Unhide → Unhide Rows','Chọn dòng trên + dòng dưới vùng ẩn → chuột phải → Unhide','View → Unhide All Rows','Cả A và B đều đúng'],
+a:3,e:'Cả 2 cách: (1) <b>Ctrl+A → Format → Hide & Unhide → Unhide Rows</b> (unhide tất cả). (2) Chọn dòng bao quanh → chuột phải → Unhide (unhide từng vùng). Cách 1 nhanh hơn khi có nhiều vùng ẩn.'},
+
+// ═══ PHẦN D: Layout, Views, Charts & Misc (10 câu) ═══
+{p:'D',n:1,q:'Trên "Annual Sales", để chèn hyperlink cho tiêu đề FusionTomo Inc. đến www.fusiontomo.com, bạn làm gì?',
+o:['Chọn ô A1 → Ctrl+K → gõ www.fusiontomo.com vào Address → OK','Chọn ô A1 → gõ www.fusiontomo.com trực tiếp','Insert → Comment → gõ URL','Home → Links → www.fusiontomo.com'],
+a:0,e:'Chọn ô chứa tiêu đề → <b>Ctrl+K</b> (hoặc Insert → Link) → gõ URL vào <b>Address</b> → OK. Text to Display giữ nguyên "FusionTomo Inc." nhưng ô sẽ liên kết đến URL.'},
+
+{p:'D',n:2,q:'Để chèn Column Sparkline vào ô G6 tham chiếu B6:E6 trên "Annual Sales", bạn vào đâu?',
+o:['Insert → Charts → Column → chọn B6:E6','Insert → Sparklines → Column → Data Range: B6:E6 → Location: G6 → OK','Home → Conditional Formatting → Data Bars','Formulas → Sparkline → Column'],
+a:1,e:'<b>Insert → Sparklines → Column</b> → Data Range: <b>B6:E6</b> → Location Range: <b>G6</b> → OK. Sparkline là biểu đồ thu nhỏ trong 1 ô, khác với Chart (biểu đồ đầy đủ).'},
+
+{p:'D',n:3,q:'Để thay đổi Theme thành "Ion" cho trang tính, bạn vào đâu?',
+o:['Home → Themes → Ion','View → Themes → Ion','Page Layout → Themes → Ion','File → Options → Theme → Ion'],
+a:2,e:'<b>Page Layout → Themes → Ion</b>. Themes thay đổi toàn bộ màu sắc, font, effects của workbook. Nằm trong tab Page Layout, không phải Home hay View.'},
+
+{p:'D',n:4,q:'Trên "Product", để chuyển sang chế độ xem Split screen, bạn dùng lệnh nào?',
+o:['View → Split','View → New Window','View → Freeze Panes','View → Page Break Preview'],
+a:0,e:'<b>View → Split</b>. Split chia cửa sổ thành 2-4 phần cuộn độc lập. Khác với Freeze Panes (cố định). Khác với New Window (mở cửa sổ mới cho cùng file).'},
+
+{p:'D',n:5,q:'Trên "Annual Sales", để Freeze cột đầu tiên (First Column), bạn làm gì?',
+o:['Chọn ô B1 → View → Freeze Panes → Freeze Panes','View → Freeze Panes → Freeze First Column','Chọn cột A → View → Freeze','View → Split → Left Column'],
+a:1,e:'<b>View → Freeze Panes → Freeze First Column</b>. Lệnh này cố định cột A khi cuộn ngang. Không cần chọn ô trước — lệnh tự áp dụng cho cột đầu tiên.'},
+
+{p:'D',n:6,q:'Trên "Source Data", để lặp lại dòng 1 ở đầu mỗi trang in (Print Titles), bạn vào đâu?',
+o:['Page Layout → Print Titles → Rows to repeat at top → chọn dòng 1 → OK','File → Print → Page Setup → Header → Row 1','View → Page Layout → Repeat Row 1','Home → Format → Print → Repeat Top Row'],
+a:0,e:'<b>Page Layout → Print Titles</b> → tại <b>Rows to repeat at top</b> → chọn <b>$1:$1</b> → OK. Dòng 1 (tiêu đề) sẽ in lặp lại ở đầu mỗi trang khi in nhiều trang.'},
+
+{p:'D',n:7,q:'Để Save trang tính dưới dạng PDF tên EXCEL05 mà KHÔNG mở file sau khi xuất, bạn làm gì?',
+o:['File → Save As → PDF → đặt tên → Save','File → Export → Create PDF/XPS → đặt tên EXCEL05 → bỏ tick Open File After Publishing → Publish','File → Print → Print to PDF → EXCEL05','Cả A và B đều đúng, nhưng B kiểm soát được "không mở file"'],
+a:3,e:'<b>File → Export → Create PDF/XPS</b> cho phép <b>bỏ tick "Open File After Publishing"</b>. File → Save As cũng lưu PDF nhưng không có tùy chọn này rõ ràng. Đề yêu cầu "do not open" nên cách B chính xác nhất, nhưng cả 2 đều tạo PDF.'},
+
+{p:'D',n:8,q:'Trên "Totals", để đổi biểu đồ thành loại 3-D Pie, bạn vào đâu?',
+o:['Chart Design → Change Chart Type → Pie → 3-D Pie → OK','Chuột phải biểu đồ → Change Chart Type → 3-D Pie','Insert → Chart → 3-D Pie (tạo chart mới)','Cả A và B đều đúng'],
+a:3,e:'Cả 2 cách đổi loại chart hiện có: (1) <b>Chart Design → Change Chart Type</b>. (2) <b>Chuột phải → Change Chart Type</b>. Cả hai mở cùng hộp thoại → chọn <b>Pie → 3-D Pie</b> → OK.'},
+
+{p:'D',n:9,q:'Trên "Annual Sales", để chèn biểu đồ 2-D Clustered Column từ A5:E15 đặt dưới bảng, bạn làm gì?',
+o:['Chọn A5:E15 (kể cả tiêu đề) → Insert → Column → 2-D Clustered Column → kéo biểu đồ xuống dưới bảng','Chọn chỉ dữ liệu số → Insert → Chart → Column','Insert → Recommended Charts → chọn Clustered Column','Data → Create Chart → Clustered Column'],
+a:0,e:'Chọn <b>A5:E15 kể cả tiêu đề cột</b> → <b>Insert → Column → 2-D Clustered Column</b>. Sau đó kéo biểu đồ xuống vị trí dưới bảng. Phải chọn cả tiêu đề để Legend hiện đúng.'},
+
+{p:'D',n:10,q:'Trên "Time Card", để Inspect workbook tìm thuộc tính ẩn như Author rồi xóa, bạn vào đâu?',
+o:['Review → Comments → Remove All','File → Info → Check for Issues → Inspect Document → Inspect → Remove All (mục personal info) → Close','Home → Clear → Clear Properties','File → Options → Privacy → Remove Personal Information'],
+a:1,e:'<b>File → Info → Check for Issues → Inspect Document</b> → nhấn <b>Inspect</b> → tìm mục <b>Document Properties and Personal Information</b> → nhấn <b>Remove All</b> → Close. Thao tác này xóa Author, Title, Comments ẩn...'},
+];
+
+const qz=document.getElementById('qz');
+let ok=0,no=0,re=Q.length;
+const upd=()=>{document.getElementById('sc-ok').textContent=`✅ ${ok}`;document.getElementById('sc-no').textContent=`❌ ${no}`;document.getElementById('sc-re').textContent=`📝 ${re}`};
+const C={A:'#1e3a5f',B:'#7c2d12',C:'#065f46',D:'#581c87'};
+const N={A:'Phần A — Formulas & Functions',B:'Phần B — Formatting & Styles',C:'Phần C — Tables, Sort, Filter & Named Ranges',D:'Phần D — Layout, Views, Charts & Misc'};
+const CNT={A:10,B:10,C:10,D:10};
+let cp='';
+Q.forEach((q,i)=>{
+  if(q.p!==cp){cp=q.p;const h=document.createElement('div');h.className='topic-hdr';h.style.background=C[q.p];h.innerHTML=`${N[q.p]} <span class="badge">${CNT[q.p]} câu</span>`;qz.appendChild(h)}
+  const d=document.createElement('div');d.className='qc';d.id=`q${i}`;
+  d.innerHTML=`<div class="qh"><div class="qn" style="background:${C[q.p]}">C${q.n}</div><div class="qt">${q.q}</div></div><div class="opts">${q.o.map((o,j)=>`<div class="op" onclick="ck(${i},${j})"><span class="le">${'ABCD'[j]}</span><span class="tx">${o}</span></div>`).join('')}</div><div class="ea" id="ea${i}"><button class="eb" onclick="se(${i})">💡 Xem giải thích đáp án</button><div class="ec" id="ec${i}">${q.e}</div></div>`;
+  qz.appendChild(d)
+});
+function ck(i,j){const d=document.getElementById(`q${i}`);if(d.classList.contains('ok')||d.classList.contains('ng'))return;const q=Q[i],ops=d.querySelectorAll('.op');ops.forEach(o=>o.classList.add('dis'));ops[q.a].classList.add('co');if(j===q.a){d.classList.add('ok');ok++}else{ops[j].classList.add('wr');d.classList.add('ng');no++}re--;upd();document.getElementById(`ea${i}`).style.display='block'}
+function se(i){const e=document.getElementById(`ec${i}`);e.style.display=e.style.display==='block'?'none':'block'}
+</script>
+</body>
+</html>
